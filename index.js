@@ -13,8 +13,8 @@ async function initStats() {
         document.getElementById("commits").textContent = data.commits;
 
         // Corrected: Only take the top 4 languages for individual slices
-        const topLanguages = data.languages.slice(0, 4);
-        const otherLanguages = data.languages.slice(4); // All languages from the 5th onwards
+        const topLanguages = data.languages.slice(0, 6);
+        const otherLanguages = data.languages.slice(6); // All languages from the 5th onwards
 
         const labels = topLanguages.map(l => l.name);
         const counts = topLanguages.map(l => l.count);
