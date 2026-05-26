@@ -1,3 +1,4 @@
+// D:/WEBDEV/MyWebsite/index.js
 async function initStats() {
     try {
         const res = await fetch("https://github-statistics.kylefos.workers.dev/");
@@ -11,8 +12,9 @@ async function initStats() {
         document.getElementById("projects").textContent = data.projects;
         document.getElementById("commits").textContent = data.commits;
 
+        // Corrected: Only take the top 4 languages for individual slices
         const topLanguages = data.languages.slice(0, 4);
-        const otherLanguages = data.languages.slice(4);
+        const otherLanguages = data.languages.slice(4); // All languages from the 5th onwards
 
         const labels = topLanguages.map(l => l.name);
         const counts = topLanguages.map(l => l.count);
@@ -31,7 +33,7 @@ async function initStats() {
             style.getPropertyValue('--tertiary').trim(),
             style.getPropertyValue('--pink').trim(),
             style.getPropertyValue('--accent').trim()
-        ];
+        ].slice(0, counts.length); // Ensure colors match the number of slices
 
         const ctx = document.getElementById('languagesChart').getContext('2d');
         const customTooltip = document.getElementById('chart-tooltip');
@@ -72,7 +74,6 @@ async function initStats() {
                                 customTooltip.querySelector('.tooltip-value').textContent = percentage;
                             }
 
-                            // Correctly position tooltip relative to page scroll and chart canvas
                             const rect = context.chart.canvas.getBoundingClientRect();
 
                             customTooltip.style.opacity = 1;

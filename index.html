@@ -6,6 +6,7 @@
   <title>Prism182</title>
   <script type="module" src="index.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     :root {
       --bg: #080812;
@@ -238,6 +239,7 @@
         var(--surface);
       border: 1px solid rgba(255, 255, 255, 0.1);
       overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .card::before {
@@ -261,6 +263,11 @@
     .card p {
       position: relative;
       color: var(--muted);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     }
 
     .split-section {
@@ -320,6 +327,12 @@
       color: var(--muted);
     }
 
+    .stat .icon {
+        font-size: 3rem; /* Larger icon size */
+        margin-bottom: 15px;
+        color: var(--primary); /* Use a theme color for icons */
+    }
+
     .chart-container {
       position: relative;
       width: 100%;
@@ -327,7 +340,7 @@
     }
 
     #chart-tooltip {
-      position: absolute; /* Changed to absolute for reliable positioning over the chart */
+      position: absolute;
       background: rgba(17, 17, 31, 0.85);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -520,7 +533,6 @@
             <h3>Scotwater App</h3>
             <p>
               Although this App is made for my college final group project, I have had a blast making it!<br><br>
-              You can check it out here!<br><br>
 
               <a href="https://github.com/Prism182/EMS" target="_blank"><img height = "36" style="border:0;height: 36px;" src="resources/GitHub_Invertocat_White.png" alt="Find this on github!"/></a>
               
@@ -548,12 +560,14 @@
 
         <div class="stats">
           <div class="stat">
-            <span>Committed projects</span>
+            <i class="fas fa-folder-open icon"></i>
+            <span>All Repositories</span>
             <strong id="projects">0</strong>
           </div>
 
           <div class="stat">
-            <span>Total commits</span>
+            <i class="fas fa-code-branch icon"></i>
+            <span>Total Commits (This year)</span>
             <strong id="commits">0</strong>
           </div>
 
@@ -570,9 +584,9 @@
     <section class="section" id="contact">
       <div class="container">
         <div class="cta">
-          <h2>Blah blah</h2>
+          <h2>Get in touch!</h2>
           <p>
-            Blah blah blah
+            For all those who wish to get in touch, you can here!
           </p>
 
           <a href="mailto:hello@example.com" class="button button-primary">
@@ -585,8 +599,8 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <span>© copyright logo, footer</span>
-      <span>span slogan or something idfk</span>
+      <span>© prism182, 2026</span>
+      <span>For all the funnies</span>
     </div>
   </footer>
 </body>
